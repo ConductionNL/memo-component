@@ -1924,6 +1924,918 @@ paths:
             schema:
               $ref: '#/components/schemas/ChangeLog-write'
         description: 'The updated ChangeLog resource'
+  /memos:
+    get:
+      tags:
+        - Memo
+      operationId: getMemoCollection
+      summary: 'Retrieves the collection of Memo resources.'
+      responses:
+        200:
+          description: 'Memo collection response'
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/Memo:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/json+ld:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/Memo:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/hal+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            application/json+hal:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            application/vnd.api+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            application/json+vnd.api:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            application/health+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            application/json+health:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            application/x-yaml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Memo-read'
+      parameters:
+        -
+          name: 'order[id]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[author]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[name]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[description]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateCreated]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateModified]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'dateCreated[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: author
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'author[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: name
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'name[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: description
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'description[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: dateCreated
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: dateModified
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: page
+          in: query
+          required: false
+          description: 'The collection page number'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      produces:
+        - application/health+json
+    post:
+      tags:
+        - Memo
+      operationId: postMemoCollection
+      summary: 'Creates a Memo resource.'
+      responses:
+        201:
+          description: 'Memo resource created'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Memo:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Memo:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+          links:
+            GetMemoItem:
+              parameters:
+                id: '$response.body#/id'
+              operationId: getMemoItem
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /memos/{id}`.'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Memo:jsonld-write'
+          application/json+ld:
+            schema:
+              $ref: '#/components/schemas/Memo:jsonld-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/json+hal:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/json+vnd.api:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/health+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/json+health:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+        description: 'The new Memo resource'
+      parameters:
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+  '/memos/{id}':
+    get:
+      tags:
+        - Memo
+      operationId: getMemoItem
+      summary: 'Retrieves a Memo resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      responses:
+        200:
+          description: 'Memo resource response'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Memo:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Memo:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+        404:
+          description: 'Resource not found'
+      produces:
+        - application/health+json
+    delete:
+      tags:
+        - Memo
+      operationId: deleteMemoItem
+      summary: 'Removes the Memo resource.'
+      responses:
+        204:
+          description: 'Memo resource deleted'
+        404:
+          description: 'Resource not found'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+    put:
+      tags:
+        - Memo
+      operationId: putMemoItem
+      summary: 'Replaces the Memo resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'Memo resource updated'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Memo:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Memo:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Memo:jsonld-write'
+          application/json+ld:
+            schema:
+              $ref: '#/components/schemas/Memo:jsonld-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/json+hal:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/json+vnd.api:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/health+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/json+health:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+        description: 'The updated Memo resource'
+    patch:
+      tags:
+        - Memo
+      operationId: patchMemoItem
+      summary: 'Updates the Memo resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'Memo resource updated'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Memo:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Memo:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Memo-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Memo:jsonld-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Memo-write'
+        description: 'The updated Memo resource'
 components:
   schemas:
     AuditTrail-read:
@@ -2312,6 +3224,126 @@ components:
         '@type':
           readOnly: true
           type: string
+    Memo-read:
+      type: object
+      description: ''
+      properties:
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this object'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+          format: uuid
+        author:
+          description: 'Name of the creator of the memo'
+          type: string
+        name:
+          description: 'Name of the memo'
+          type: string
+        description:
+          description: 'Description of the memo'
+          type: string
+        dateCreated:
+          readOnly: true
+          description: 'The moment this resource was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this resource last Modified'
+          type: string
+          format: date-time
+      required:
+        - author
+        - name
+        - description
+    Memo-write:
+      type: object
+      description: ''
+      required:
+        - author
+        - name
+        - description
+      properties:
+        author:
+          description: 'Name of the creator of the memo'
+          type: string
+        name:
+          description: 'Name of the memo'
+          type: string
+        description:
+          description: 'Description of the memo'
+          type: string
+    'Memo:jsonld-read':
+      type: object
+      description: ''
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this object'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+          format: uuid
+        author:
+          description: 'Name of the creator of the memo'
+          type: string
+        name:
+          description: 'Name of the memo'
+          type: string
+        description:
+          description: 'Description of the memo'
+          type: string
+        dateCreated:
+          readOnly: true
+          description: 'The moment this resource was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this resource last Modified'
+          type: string
+          format: date-time
+      required:
+        - author
+        - name
+        - description
+    'Memo:jsonld-write':
+      type: object
+      description: ''
+      required:
+        - author
+        - name
+        - description
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        author:
+          description: 'Name of the creator of the memo'
+          type: string
+        name:
+          description: 'Name of the memo'
+          type: string
+        description:
+          description: 'Description of the memo'
+          type: string
 definitions:
   AuditTrail-read:
     properties:
@@ -2417,12 +3449,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-29 13:45:48'
+        example: '2020-04-29 14:04:45'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-29 13:45:48'
+        example: '2020-04-29 14:04:45'
     required: []
   AuditTrail-write:
     properties:
@@ -2470,12 +3502,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-29 13:45:48'
+        example: '2020-04-29 14:04:45'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-29 13:45:48'
+        example: '2020-04-29 14:04:45'
     required: []
   ChangeLog-write:
     properties:
@@ -2484,6 +3516,53 @@ definitions:
         type: string
         example: 'This log line is suspicius'
         maxLength: 2555
+    required: []
+  Memo-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      author:
+        description: 'Name of the creator of the memo'
+        type: string
+        example: 'Gino Kok'
+        maxLength: 2555
+      name:
+        description: 'Name of the memo'
+        type: string
+        example: 'grocery list'
+        maxLength: 255
+      description:
+        description: 'Description of the memo'
+        type: string
+        example: 'list of grocery items'
+        maxLength: 400
+      dateCreated:
+        description: 'The moment this resource was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this resource last Modified'
+        type: \Datetime
+    required: []
+  Memo-write:
+    properties:
+      author:
+        description: 'Name of the creator of the memo'
+        type: string
+        example: 'Gino Kok'
+        maxLength: 2555
+      name:
+        description: 'Name of the memo'
+        type: string
+        example: 'grocery list'
+        maxLength: 255
+      description:
+        description: 'Description of the memo'
+        type: string
+        example: 'list of grocery items'
+        maxLength: 400
     required: []
 tags:
   -
@@ -2498,21 +3577,27 @@ tags:
       An resource representing a log line.
       
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
+  -
+    name: Memo
+    description: |
+      
+      
+      
 securityDefinitions:
   JWT-Oauth:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
     scopes:
-      read: 'read right to the ChangeLog resource'
-      write: 'write right to the ChangeLog resource'
+      read: 'read right to the Memo resource'
+      write: 'write right to the Memo resource'
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
     scopes:
-      read: 'read right to the ChangeLog resource'
-      write: 'write right to the ChangeLog resource'
+      read: 'read right to the Memo resource'
+      write: 'write right to the Memo resource'
 host: irc.zaakonline.nl
 servers:
   -
