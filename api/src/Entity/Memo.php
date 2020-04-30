@@ -103,7 +103,7 @@ class Memo
      *
      * @ApiFilter(DateFilter::class, strategy=DateFilter::EXCLUDE_NULL)
      * @Groups({"read"})
-     * @Gedmo\Timestampable(on="create")
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
