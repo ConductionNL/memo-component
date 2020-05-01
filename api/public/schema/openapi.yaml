@@ -2038,6 +2038,15 @@ paths:
               - asc
               - desc
         -
+          name: 'order[topic]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
           name: 'order[description]'
           in: query
           required: false
@@ -2152,6 +2161,22 @@ paths:
             type: string
         -
           name: 'name[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: topic
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'topic[]'
           in: query
           required: false
           schema:
@@ -3236,10 +3261,17 @@ components:
           type: string
           format: uuid
         author:
-          description: 'Name of the creator of the memo'
+          description: 'A contact component person'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         name:
           description: 'Name of the memo'
+          type: string
+        topic:
+          description: 'Topic of the memo'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         description:
           description: 'Description of the memo'
@@ -3257,6 +3289,7 @@ components:
       required:
         - author
         - name
+        - topic
         - description
     Memo-write:
       type: object
@@ -3264,13 +3297,21 @@ components:
       required:
         - author
         - name
+        - topic
         - description
       properties:
         author:
-          description: 'Name of the creator of the memo'
+          description: 'A contact component person'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         name:
           description: 'Name of the memo'
+          type: string
+        topic:
+          description: 'Topic of the memo'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         description:
           description: 'Description of the memo'
@@ -3296,10 +3337,17 @@ components:
           type: string
           format: uuid
         author:
-          description: 'Name of the creator of the memo'
+          description: 'A contact component person'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         name:
           description: 'Name of the memo'
+          type: string
+        topic:
+          description: 'Topic of the memo'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         description:
           description: 'Description of the memo'
@@ -3317,6 +3365,7 @@ components:
       required:
         - author
         - name
+        - topic
         - description
     'Memo:jsonld-write':
       type: object
@@ -3324,6 +3373,7 @@ components:
       required:
         - author
         - name
+        - topic
         - description
       properties:
         '@context':
@@ -3336,10 +3386,17 @@ components:
           readOnly: true
           type: string
         author:
-          description: 'Name of the creator of the memo'
+          description: 'A contact component person'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         name:
           description: 'Name of the memo'
+          type: string
+        topic:
+          description: 'Topic of the memo'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         description:
           description: 'Description of the memo'
@@ -3449,12 +3506,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-29 14:04:45'
+        example: '2020-05-01 08:27:12'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-29 14:04:45'
+        example: '2020-05-01 08:27:12'
     required: []
   AuditTrail-write:
     properties:
@@ -3502,12 +3559,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-29 14:04:45'
+        example: '2020-05-01 08:27:12'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-29 14:04:45'
+        example: '2020-05-01 08:27:12'
     required: []
   ChangeLog-write:
     properties:
@@ -3525,14 +3582,21 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       author:
-        description: 'Name of the creator of the memo'
+        description: 'A contact component person'
         type: string
-        example: 'Gino Kok'
-        maxLength: 2555
+        example: 'https://cc.zaakonline.nl/people/e2984465-190a-4562-829e-a8cca81aa35d'
+        format: url
+        maxLength: 255
       name:
         description: 'Name of the memo'
         type: string
         example: 'grocery list'
+        maxLength: 255
+      topic:
+        description: 'Topic of the memo'
+        type: string
+        example: 'https://cc.zaakonline.nl/people/e2984465-190a-4562-829e-a8cca81aa35d'
+        format: url
         maxLength: 255
       description:
         description: 'Description of the memo'
@@ -3549,14 +3613,21 @@ definitions:
   Memo-write:
     properties:
       author:
-        description: 'Name of the creator of the memo'
+        description: 'A contact component person'
         type: string
-        example: 'Gino Kok'
-        maxLength: 2555
+        example: 'https://cc.zaakonline.nl/people/e2984465-190a-4562-829e-a8cca81aa35d'
+        format: url
+        maxLength: 255
       name:
         description: 'Name of the memo'
         type: string
         example: 'grocery list'
+        maxLength: 255
+      topic:
+        description: 'Topic of the memo'
+        type: string
+        example: 'https://cc.zaakonline.nl/people/e2984465-190a-4562-829e-a8cca81aa35d'
+        format: url
         maxLength: 255
       description:
         description: 'Description of the memo'
