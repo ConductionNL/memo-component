@@ -167,12 +167,12 @@ class Memo
 
     public function getDescription(): ?string
     {
-        return $this->mdescription;
+        return $this->description;
     }
 
     public function setDescription(string $description): self
     {
-        $this->description = $dscription;
+        $this->description = $description;
 
         return $this;
     }
