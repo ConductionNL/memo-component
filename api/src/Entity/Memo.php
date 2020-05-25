@@ -51,13 +51,14 @@ class Memo
     private $id;
 
     /**
-     * @var string Name of the creator of the memo
+     * @var string A contact component person
      *
-     * @example Gino Kok
+     * @example https://cc.zaakonline.nl/people/e2984465-190a-4562-829e-a8cca81aa35d
      * @Groups({"read", "write"})
      * @ORM\Column(type="text")
+     * @Assert\Url
      * @Assert\Length(
-     *     max = 2555
+     *     max = 255
      * )
      * @Assert\NotBlank
      */
@@ -75,6 +76,20 @@ class Memo
      * @Assert\NotBlank
      */
     private $name;
+
+    /**
+     * @var string Topic of the memo
+     *
+     * @example https://cc.zaakonline.nl/people/e2984465-190a-4562-829e-a8cca81aa35d
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="text")
+     * @Assert\Url
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Assert\NotBlank
+     */
+    private $topic;
 
     /**
      * @var string Description of the memo
@@ -103,7 +118,7 @@ class Memo
      *
      * @ApiFilter(DateFilter::class, strategy=DateFilter::EXCLUDE_NULL)
      * @Groups({"read"})
-     * @Gedmo\Timestampable(on="create")
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
@@ -138,14 +153,26 @@ class Memo
         return $this;
     }
 
+    public function getTopic(): ?string
+    {
+        return $this->topic;
+    }
+
+    public function setTopic(string $topic): self
+    {
+        $this->topic = $topic;
+
+        return $this;
+    }
+
     public function getDescription(): ?string
     {
-        return $this->mdescription;
+        return $this->description;
     }
 
     public function setDescription(string $description): self
     {
-        $this->description = $dscription;
+        $this->description = $description;
 
         return $this;
     }
