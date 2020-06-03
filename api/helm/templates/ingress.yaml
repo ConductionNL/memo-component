@@ -15,7 +15,7 @@ metadata:
 spec:
     tls:
         - hosts:
-            - {{ $.Values.settings.domain }}
+              - {{ $.Values.settings.domain }}
         secretName: {{ template "fullname" . }}
     rules:
         {{- if and (eq $.Values.settings.env "prod") $.Values.settings.subdomain }}
