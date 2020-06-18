@@ -14,7 +14,7 @@ settings:
   repro: https://github.com/ConductionNL/proto-component
   demo: memo.conduction.nl
   container: https://hub.docker.com/repository/docker/conduction/memo-php
-  domain: conduction.nl
+  domain: dev
   subdomain: memo
   organisationName: Conduction
   email: info@conduction.nl
