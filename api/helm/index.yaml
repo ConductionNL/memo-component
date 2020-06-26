@@ -3,25 +3,14 @@ entries:
   memo:
   - apiVersion: v1
     appVersion: V.0.1
-<<<<<<< HEAD
-    created: "2020-06-10T11:42:41.8925601Z"
+    created: "2020-06-26T13:08:45.8732858Z"
     description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&#039;'
-    digest: c5515826f01ccd5fb2f69dd36bc4c1e465206afcff81c7f341b1d7cdc164a64f
-=======
-    created: "2020-06-18T08:06:48.130650715Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: c6fa0f97993e0935f3c4699b251e818976950097027677a2d05a391cda00f44a
->>>>>>> development
+    digest: d3e253727761e1a07ca034aa9141d5d6abbd83a9400c547328f901c202c538af
     home: memo.zaakonline.nl
     icon: memo.zaakonline.nl
     name: memo
     urls:
     - memo-0.1.0.tgz
     version: 0.1.0
-<<<<<<< HEAD
-generated: "2020-06-10T11:42:41.8876048Z"
-=======
-generated: "2020-06-18T08:06:48.128258215Z"
->>>>>>> development
+generated: "2020-06-26T13:08:45.8665492Z"
