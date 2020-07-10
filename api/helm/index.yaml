@@ -10,15 +10,6 @@ entries:
     home: memo.zaakonline.nl
     icon: memo.zaakonline.nl
     name: memo
-=======
-    created: "2020-07-08T14:50:18.657099231Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: a3ebf537582710b118b706a276db61fec8e25b642f3e8f3d1bb239ac1131f064
-    home: pc.zaakonline.nl
-    icon: pc.zaakonline.nl
-    name: pc
->>>>>>> 41a97a9ed64ed3b1188b17efb5bce2fa1b84e8ae
     urls:
     - memo-0.1.0.tgz
     version: 0.1.0
