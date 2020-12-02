@@ -2,15 +2,49 @@ apiVersion: v1
 entries:
   memo:
   - apiVersion: v1
-    appVersion: V.0.1
-    created: "2020-07-20T20:02:08.742386394Z"
+    appVersion: V1.0
+    created: "2020-12-02T10:30:13.9531018Z"
     description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&#039;'
-    digest: 3cdd4349c7a804695785e12d4eff581cf54f14dbed4acc55a622afbd2abed222
+    digest: dcb8b7baa9445770d83765d4b1125497be0c236cb5316d9098b39717ddcfd3ce
     home: memo.zaakonline.nl
     icon: memo.zaakonline.nl
     name: memo
     urls:
     - memo-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-20T20:02:08.738582094Z"
+  postgresql:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 11.10.0
+    created: "2020-12-02T10:30:13.9682098Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.x.x
+    description: Chart for PostgreSQL, an object-relational database management system
+      (ORDBMS) with an emphasis on extensibility and on standards-compliance.
+    digest: eebe8f456cf98d5927a35666d1d899174dc4d3e09f26788033f761527bc90749
+    home: https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-110x117.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    name: postgresql
+    sources:
+    - https://github.com/bitnami/bitnami-docker-postgresql
+    - https://www.postgresql.org/
+    urls:
+    - charts/postgresql-10.1.1.tgz
+    version: 10.1.1
+generated: "2020-12-02T10:30:13.9373943Z"
