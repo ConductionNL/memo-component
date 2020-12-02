@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: 'Memo component commonground'
-  version: V.0.1
+  version: V1.0
   description: |
     API Details
     - Component: Memo component commonground
@@ -10,9 +10,9 @@ info:
     - Version: V1.0
     - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/memo-php) 
-    - Datamodel: [postman](/schema/memo.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
+    - Datamodel: [postman](schema/memo.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
     
-    Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.         
+    'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'         
     
 paths:
   /audit_trails:
@@ -3598,12 +3598,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-07-20 20:04:35'
+        example: '2020-12-02 10:10:46'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-07-20 20:04:35'
+        example: '2020-12-02 10:10:46'
     required: []
   AuditTrail-write:
     properties:
@@ -3651,12 +3651,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-07-20 20:04:35'
+        example: '2020-12-02 10:10:46'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-07-20 20:04:35'
+        example: '2020-12-02 10:10:46'
     required: []
   ChangeLog-write:
     properties:
