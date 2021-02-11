@@ -1,10 +1,9 @@
 Memo Component / Memo
 -------
 
-Het memo component biedt de generieke mogelijkheid om gebruikers memo’s (notities) te laten aanmaken of resources (bijvoorbeeld Common Ground resources). Deze functionaliteit is bewust abstract opgezet. In wezen kan elke gebruiker over alles een memo aanmaken. Dat biedt ook de mogelijkheid om voor elke willekeurige resource het component te bevragen en te zien of er memo’s voor staan.
+The memo component offers the generic option to let users create memos (notes) or resources (for example Common Ground resources). This functionality has been deliberately set up abstractly. Essentially, any user can create a memo about anything. This also offers the possibility to query the component for any resource and see if there are any memos for it.
 
-Memo’s worden in principe gezien als organisatie-intern en zijn nadrukkelijk geen communicatiekanaal met de klant, daarvoor zijn ‘contactmomenten’ beschikbaar.
-
+Memos are in principle seen as internal to the organization and are emphatically not a channel of communication with the customer, there for is "contact moments" available.
   
 
 Credits
