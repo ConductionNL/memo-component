@@ -3,10 +3,10 @@ entries:
   memo:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-12-02T10:30:13.9531018Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: dcb8b7baa9445770d83765d4b1125497be0c236cb5316d9098b39717ddcfd3ce
+    created: "2021-02-18T03:26:10.5510085Z"
+    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+      beschikbaar.
+    digest: 97fb48b8fc037bd1f2bcdb1717b6b0c0fad0beb117ac6fd11a5fead0b62f29ce
     home: memo.zaakonline.nl
     icon: memo.zaakonline.nl
     name: memo
@@ -18,7 +18,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2020-12-02T10:30:13.9682098Z"
+    created: "2021-02-18T03:26:10.5942307Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -47,4 +47,4 @@ entries:
     urls:
     - charts/postgresql-10.1.1.tgz
     version: 10.1.1
-generated: "2020-12-02T10:30:13.9373943Z"
+generated: "2021-02-18T03:26:10.5316135Z"
