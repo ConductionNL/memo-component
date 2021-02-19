@@ -11,8 +11,8 @@ settings:
   repro: https://github.com/ConductionNL/memo-component
   demo: memo.conduction.nl
   domain: conduction.nl
-  subdomain: memo
-  subpath: memo
+  subdomain: memo-component
+  subpath: memo-component
   subpathRouting: true
   env: dev
   web: false
