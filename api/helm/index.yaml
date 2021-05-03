@@ -1,24 +1,37 @@
 apiVersion: v1
 entries:
-  memo:
+  memo-component:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-12-02T10:30:13.9531018Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: dcb8b7baa9445770d83765d4b1125497be0c236cb5316d9098b39717ddcfd3ce
-    home: memo.zaakonline.nl
-    icon: memo.zaakonline.nl
-    name: memo
+    created: "2021-03-16T10:23:39.080481Z"
+    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+      beschikbaar.
+    digest: 48ab9795599beaa11b3ec0ae290402bb076798cce0717c907f77f831e8b171c1
+    home: https://www.conduction.nl
+    icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
+    keywords:
+    - commonground
+    - haven
+    - nlx
+    - component
+    maintainers:
+    - email: ruben@conduction.nl
+      name: Ruben van der Linde
+    - email: info@conduction.nl
+      name: Conduction
+    name: memo-component
+    sources:
+    - https://commonground.conduction.nl/
+    - https://www.commonground.nl/
     urls:
-    - memo-0.1.0.tgz
+    - memo-component-0.1.0.tgz
     version: 0.1.0
   postgresql:
   - annotations:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2020-12-02T10:30:13.9682098Z"
+    created: "2021-03-16T10:23:39.0841942Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -47,4 +60,4 @@ entries:
     urls:
     - charts/postgresql-10.1.1.tgz
     version: 10.1.1
-generated: "2020-12-02T10:30:13.9373943Z"
+generated: "2021-03-16T10:23:39.0743677Z"
