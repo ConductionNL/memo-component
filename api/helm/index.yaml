@@ -1,12 +1,60 @@
 apiVersion: v1
 entries:
   memo-component:
+  - annotations:
+      artifacthub.io/containsSecurityUpdates: "true"
+    apiVersion: v2
+    appVersion: V1.0
+    created: "2021-06-22T14:41:39.6398431Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.1.1
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.7.7
+    description: Het Memo Component biedt de generieke mogelijkheid om gebruikers
+      memo’s (notities) te laten aanmaken of resources (bijvoorbeeld Common Ground
+      resources). Deze functionaliteit is bewust abstract opgezet. In wezen kan elke
+      gebruiker over alles een memo aanmaken. Dat biedt ook de mogelijkheid om voor
+      elke willekeurige resource het component te bevragen en te zien of er memo’s
+      voor staan. Memo’s worden in principe gezien als organisatie-intern en zijn
+      nadrukkelijk geen communicatiekanaal met de klant, daarvoor zijn ‘contactmomenten’
+      beschikbaar.
+    digest: 8d25bd9bbc024b53ae05f9894f5b46aabeb52b3ea9b6db60eec9865d08be87c6
+    home: https://www.conduction.nl
+    icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
+    keywords:
+    - commonground
+    - haven
+    - nlx
+    - component
+    maintainers:
+    - email: ruben@conduction.nl
+      name: Ruben van der Linde
+    - email: info@conduction.nl
+      name: Conduction
+    name: memo-component
+    sources:
+    - https://commonground.conduction.nl/
+    - https://www.commonground.nl/
+    urls:
+    - memo-component-1.0.0.tgz
+    version: 1.0.0
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-03-16T10:23:39.080481Z"
-    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+    created: "2021-06-22T14:41:39.6134958Z"
+    description: Het Memo Component biedt de generieke mogelijkheid om gebruikers
+      memo’s (notities) te laten aanmaken of resources (bijvoorbeeld Common Ground
+      resources). Deze functionaliteit is bewust abstract opgezet. In wezen kan elke
+      gebruiker over alles een memo aanmaken. Dat biedt ook de mogelijkheid om voor
+      elke willekeurige resource het component te bevragen en te zien of er memo’s
+      voor staan. Memo’s worden in principe gezien als organisatie-intern en zijn
+      nadrukkelijk geen communicatiekanaal met de klant, daarvoor zijn ‘contactmomenten’
       beschikbaar.
-    digest: 48ab9795599beaa11b3ec0ae290402bb076798cce0717c907f77f831e8b171c1
+    digest: 122afe790c3c79a5ec96e37a6dc0dc0618f9239f7f0845d2bfc7b68f6d90c5b5
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
     keywords:
@@ -31,7 +79,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-03-16T10:23:39.0841942Z"
+    created: "2021-06-22T14:41:39.6518784Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -60,4 +108,38 @@ entries:
     urls:
     - charts/postgresql-10.1.1.tgz
     version: 10.1.1
-generated: "2021-03-16T10:23:39.0743677Z"
+  redis:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 6.0.11
+    created: "2021-06-22T14:41:39.6636985Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: Open source, advanced key-value store. It is often referred to as
+      a data structure server since keys can contain strings, hashes, lists, sets
+      and sorted sets.
+    digest: 2d70861d16fc410ed6d6c818b97f7b0d519031147e5c7b42c5691d4c38742c44
+    home: https://github.com/bitnami/charts/tree/master/bitnami/redis
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    name: redis
+    sources:
+    - https://github.com/bitnami/bitnami-docker-redis
+    - http://redis.io/
+    urls:
+    - charts/redis-12.7.7.tgz
+    version: 12.7.7
+generated: "2021-06-22T14:41:39.6009766Z"
