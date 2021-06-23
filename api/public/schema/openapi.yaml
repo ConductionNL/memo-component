@@ -11,9 +11,8 @@ info:
     - Repository: [online](https://github.com/ConductionNL/memo-component) / [zip](https://github.com/ConductionNL/memo-component/archive/master.zip)
     - Docker Image: [online]() 
     - Datamodel: [postman](schema/memo-component.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
-    
-    Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.         
-    
+
+    Het Memo Component biedt de generieke mogelijkheid om gebruikers memo’s (notities) te laten aanmaken of resources (bijvoorbeeld Common Ground resources). Deze functionaliteit is bewust abstract opgezet. In wezen kan elke gebruiker over alles een memo aanmaken. Dat biedt ook de mogelijkheid om voor elke willekeurige resource het component te bevragen en te zien of er memo’s voor staan. Memo’s worden in principe gezien als organisatie-intern en zijn nadrukkelijk geen communicatiekanaal met de klant, daarvoor zijn ‘contactmomenten’ beschikbaar.         
 paths:
   /audit_trails:
     get:
@@ -2140,22 +2139,6 @@ paths:
           schema:
             type: string
         -
-          name: id
-          in: query
-          required: false
-          schema:
-            type: string
-        -
-          name: 'id[]'
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: true
-        -
           name: author
           in: query
           required: false
@@ -2163,22 +2146,6 @@ paths:
             type: string
         -
           name: 'author[]'
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: true
-        -
-          name: name
-          in: query
-          required: false
-          schema:
-            type: string
-        -
-          name: 'name[]'
           in: query
           required: false
           schema:
@@ -2204,13 +2171,13 @@ paths:
           style: form
           explode: true
         -
-          name: description
+          name: name
           in: query
           required: false
           schema:
             type: string
         -
-          name: 'description[]'
+          name: 'name[]'
           in: query
           required: false
           schema:
@@ -2219,30 +2186,6 @@ paths:
               type: string
           style: form
           explode: true
-        -
-          name: dateCreated
-          in: query
-          required: false
-          schema:
-            type: string
-        -
-          name: 'dateCreated[]'
-          in: query
-          required: false
-          schema:
-            type: string
-        -
-          name: dateModified
-          in: query
-          required: false
-          schema:
-            type: string
-        -
-          name: 'dateModified[]'
-          in: query
-          required: false
-          schema:
-            type: string
         -
           name: page
           in: query
@@ -3532,12 +3475,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-03-16 10:23:43'
+        example: '2021-06-23 09:19:37'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-03-16 10:23:43'
+        example: '2021-06-23 09:19:37'
     required: []
   ChangeLog-write:
     properties:
@@ -3651,12 +3594,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-03-16 10:23:43'
+        example: '2021-06-23 09:19:37'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-03-16 10:23:43'
+        example: '2021-06-23 09:19:37'
     required: []
   AuditTrail-write:
     properties:
@@ -3669,21 +3612,20 @@ definitions:
 tags:
   -
     name: Memo
-    description: |
-      
-      
-      
+    description: |+
+
+
   -
     name: ChangeLog
-    description: |
+    description: |-
       An resource representing a log line.
-      
+
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: AuditTrail
-    description: |
+    description: |-
       An resource representing a log line.
-      
+
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
 securityDefinitions:
   JWT-Oauth:
